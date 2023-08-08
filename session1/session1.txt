@@ -1,0 +1,36 @@
+step1
+mkdir "ameen tarek"
+cd "ameen tarek"/
+step2
+mkdir Documents
+cd Documents
+touch file1.txt file2.txt file3.txt
+ls
+step3
+cd ..
+touch .hidden_file
+ls
+step4 
+nano file1.txt
+cat file1.txt
+step5
+step6
+mkdir "a hyphen"
+cd "a hyphen"/
+step7
+cd ../../
+cp -r Documents/ ~/"Anas Alfeky"/My_Documents
+ls
+ls My_Documents
+step8
+ls -a
+step9
+cd Documents/
+mv file2.txt ~/ameen\ tarek/
+mv file3.txt ~/ameen\ tarek/
+cd ../
+ls
+step 10 
+cd ~
+rm -r ameen\ tarek/
+ls
