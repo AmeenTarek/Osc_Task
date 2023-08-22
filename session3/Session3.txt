@@ -1,0 +1,36 @@
+**************step1***************
+sudo adduser OSC
+sudo groupadd OSC
+sudo passwd OSC
+sudo usermod -a -G osc_gruop OSC
+sudo usermod -a -G sudo OSC
+sudo su - OSC 
+**************step2***************
+PS1=\u@\h:\w\$
+sudo mkdir permission_practice
+cd permission_practice
+sudo touch public_file.txt priavate_file.txt executable_script.sh
+sudo chmod 666 public_file.txt
+sudo chmod 600 priavate_file.txt
+sudo chmod 760 executable_script.sh
+**************step3***************
+sudo chown OSC praivate_file.txt
+sudo chgrp osc_group praivate_file.txt
+**************step4***************
+sleep 100 &
+jobs 
+kill -s KILL 4051
+jobs
+**************step5***************
+sudo apt install vim 
+vim
+ctrl+z
+ps
+kill -s KILL 4891
+jobs
+ps
+**************step6***************
+sudo apt install neofetch
+**************step7***************
+sudo apt remove neofetch
+sudo apt autoremove
