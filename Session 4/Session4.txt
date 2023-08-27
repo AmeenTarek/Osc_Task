@@ -1,0 +1,134 @@
+1. System Details
+ 
+touch system_info.sh
+nano system_info.sh
+*****************************************
+   #!/bin/bash
+
+   username=$(whoami)
+
+
+  kernel_version=$(uname -r)
+
+  echo "Username: $username"
+  echo "Kernel Version: $kernel_version"
+  chmod +x system_info.sh
+*****************************************
+./system_info.sh
+
+2. File Manipulation
+
+touch file_check.sh
+chmod +x file_check.sh
+nano file_check.sh
+*****************************************
+  #!/bin/bash
+  filename=$1
+  directory=$2
+
+  if [ -e "$directory/$filename" ]; then
+    echo "File exists"
+    echo "Contents of $filename:"
+    cat "$directory/$filename"
+  else
+    echo "File does not exist"
+  fi
+*****************************************
+./file_check.sh system_info.sh /home/osc
+
+3. Renaming Files
+
+cd Pictures/
+ls
+touch a.png s.png q.png
+ls
+touch rename_files.sh
+nano rename_files.sh
+*****************************************
+#!/bin/bash
+
+counter=1
+
+for file in *.$1; do
+
+new_filename="$2$counter.$1"
+
+sudo mv "$file" "$new_filename"
+
+((counter++))
+done
+*****************************************
+chmod +x rename_files.sh
+./rename_files.sh png image
+ls
+
+4. Menu-Driven Calculator
+
+cd .. 
+touch calculator.sh
+nano calculator.sh
+*****************************************
+#!/bin/bash
+
+addition() {
+result=$(($1 + $2))
+echo "$1 + $2 = $result"
+}
+
+subtraction() {
+result=$(($1 - $2))
+echo "$1 - $2 = $result"
+}
+
+multiplication() {
+result=$(($1 * $2))
+echo "$1 * $2 = $result"
+}
+
+division() {
+result=$(($1 / $2))
+echo "$1 / $2 = $result"
+}
+
+while true; do
+echo "1. Addition"
+echo "2. Subtraction"
+echo "3. Multiplication"
+echo "4. Division"
+echo "5. Exit"
+
+read -p "Enter your choice: " choice
+
+case $choice in
+1) 
+read -p "Enter the first number: " num1
+read -p "Enter the second number: " num2
+addition $num1 $num2
+;;
+2)
+read -p "Enter the first number: " num1
+read -p "Enter the second number: " num2
+subtraction $num1 $num2
+;;
+3)
+read -p "Enter the first number: " num1
+read -p "Enter the second number: " num2
+multiplication $num1 $num2
+;;
+4)
+read -p "Enter the first number: " num1
+read -p "Enter the second number: " num2
+division $num1 $num2
+;;
+5)
+echo "Exiting..."
+exit 0
+;;
+*)
+echo "Invalid choice. Please try again."
+;;
+esac
+done
+*****************************************
+chmod +x calculator.sh
+./calculator.sh
